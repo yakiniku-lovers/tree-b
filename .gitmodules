@@ -1,0 +1,3 @@
+[submodule "pymlask"]
+	path = pymlask
+	url = https://github.com/ikegami-yukino/pymlask.git
