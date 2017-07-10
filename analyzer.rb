@@ -1,6 +1,5 @@
 require 'json'
 require 'pp'
-require 'natto'
 
 class Analyzer
   def initialize path
@@ -30,7 +29,6 @@ class Analyzer
       result_raw = `python3 query.py '#{t[:text]}'`
       
       obj = JSON.parse(result_raw, :symbolize_names => true)
-      pp obj
       if obj[:emotion]
         obj[:emotion].each_pair do |k, v|
           genre[k] += v.map{|word| t[:text].scan(/#{word}/).size}.sum
