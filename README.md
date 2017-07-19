@@ -4,6 +4,7 @@
 ## Requirements
 * Python 3
 * MeCab
+* `brew install mecab mecab-ipadic`
 * `pip install mecab-python3`
 
 ## Installation
