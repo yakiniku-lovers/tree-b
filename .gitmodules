@@ -1,3 +1,6 @@
 [submodule "pymlask"]
 	path = pymlask
 	url = https://github.com/ikegami-yukino/pymlask.git
+[submodule "tree-c"]
+	path = tree-c
+	url = https://github.com/yakiniku-lovers/tree-c

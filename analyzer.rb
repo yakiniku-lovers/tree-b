@@ -41,11 +41,24 @@ class Analyzer
     self
   end
   
-  def dump
-    puts "#{@result.size} #{@genre_template.keys.size}"
-    puts @genre_template.keys.map(&:to_s).join(' ')
-    @result.each do |r|
+  def to_s
+    ret = String.new
+    ret << "#{@result.size} #{@genre_template.keys.size}"
+    ret << @genre_template.keys.map(&:to_s).join(' ')
+    ret << @result.map{|r|
       puts r.values.join(' ')
-    end
+    }.join("\n")
+  end
+  
+  def dump
+    puts self.to_s
+  end
+  
+  def params
+    IO.popen('./tree-c/tree_c', 'r+') {|io|
+      io.puts a.to_s
+      io.close_write
+      return io.gets
+    }
   end
 end

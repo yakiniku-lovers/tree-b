@@ -6,4 +6,9 @@ if ARGV.size < 1
 end
 
 a = Analyzer.new(ARGV[0]).analyze
-a.dump
+
+IO.popen('./tree-c/tree_c', 'r+') {|io|
+  io.puts a.to_s
+  io.close_write
+  p io.gets
+}
