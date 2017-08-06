@@ -58,7 +58,7 @@ class Analyzer
     IO.popen('./tree-c/tree_c', 'r+') {|io|
       io.puts a.to_s
       io.close_write
-      return io.gets
+      return io.gets.split(' ')
     }
   end
 end
